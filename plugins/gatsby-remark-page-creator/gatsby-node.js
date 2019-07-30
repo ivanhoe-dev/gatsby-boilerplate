@@ -146,6 +146,14 @@ exports.createPages = ({ graphql, getNode, actions, getNodesByType }) => {
                 }
 
                 createPage(page);
+
+                // Create index page with default locale
+                if (locale.value === siteNode.siteMetadata.locale.default && node.fields.name === 'index') {
+                    const indexPage = Object.assign({}, page);
+                    indexPage.context.url = url;
+                    indexPage.path = url;
+                    createPage(indexPage);
+                }
             });
         });
     });
