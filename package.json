@@ -1,10 +1,10 @@
 {
-  "name": "stackbit-azimuth-theme",
-  "description": "Stackbit Azimuth Theme",
+  "name": "gatsby-boilerplate",
+  "description": "Gatsby-Boilerplate",
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "develop": "gatsby develop",
+    "develop": "gatsby develop -p 8001",
     "start": "npm run develop",
     "build": "gatsby build --prefix-paths",
     "serve": "gatsby serve"

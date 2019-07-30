@@ -18,7 +18,7 @@ export default class Body extends React.Component {
                     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,700i" rel="stylesheet"/>
                     <link rel="stylesheet" href={safePrefix('assets/css/main.css')}/>
                 </Helmet>
-                <div id="page" className={'site palette-' + _.get(this.props, 'pageContext.site.siteMetadata.palette')}>
+                <div id="page">
                   <Header {...this.props} />
                   <main id="content" className="site-content">
                     {this.props.children}

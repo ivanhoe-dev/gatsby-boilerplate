@@ -24,19 +24,6 @@ module.exports = {
                 plugins: [`gatsby-remark-component`]
             }
         },
-        {
-            resolve: `gatsby-remark-page-creator`,
-            options: {
-                
-            }
-        },
-        {
-            resolve: `@stackbit/gatsby-plugin-menus`,
-            options: {
-                sourceUrlPath: `fields.url`,
-                pageContextProperty: `menus`,
-                menus: require('./src/data/menus.json'),
-            }
-        }
+        `gatsby-remark-page-creator`,
     ]
 };
