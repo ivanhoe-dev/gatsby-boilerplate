@@ -172,5 +172,6 @@ Example:
 
 ## CMS
 Your CMS will only work after deploying on Netlify. The URL will be https://XXX.netlify.com/admin
+The first time you access the CMS, it will require you to register an account, you could input an email under Netlift Indetity. The system will send you an email for setting password
 
 You could config your CMS under **static/admin/config.yml**
