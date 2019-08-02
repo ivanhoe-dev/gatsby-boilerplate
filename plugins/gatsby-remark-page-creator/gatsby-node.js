@@ -149,8 +149,8 @@ exports.createPages = ({ graphql, getNode, actions, getNodesByType }) => {
             // Create index page with default locale
             if (node.fields.relativeDir === siteNode.siteMetadata.locale.default && node.fields.name === 'index') {
                 const indexPage = Object.assign({}, page);
-                indexPage.context.url = url;
-                indexPage.path = url;
+                indexPage.context.url = '/';
+                indexPage.path = '/';
                 createPage(indexPage);
             }
         });
