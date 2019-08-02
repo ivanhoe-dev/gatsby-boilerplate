@@ -72,7 +72,7 @@ Config **site-metadata.json** under the root directory
 | Attribute  | Usage  |
 | ------------ | ------------ |
 |  locale.default |  Your default language for the index page |
-| locale.list  | The list of languages available for your web. The key attribute is the label shown on navbar. The value attribute is the URL pattern for the language  |
+| locale.list  | This is for navbar language switch. The key attribute is the label shown on navbar. The value attribute is the URL pattern for the language  |
 
 Example:
 
@@ -98,28 +98,22 @@ Example:
 }
 ```
 **[2] Add locale content to your page**
-Under each **src/pages/*.md **file, add  your  locale value (e.g. en) as attribute and put all data with that language under this attribute. Becareful do not put the template attribute under the locale attribute.
+Under src/pages, you can create subfolders for each language.  The language key will be inserted in the slug as prefix (e.g. /zh/about)
 
-Example:
+For example:
 ```markdown
-en:
-  title: About Us
-  subtitle: >-
-    This is an optional subtitle. It can be used to describe what this page is
-    about.
-  img_path: images/about.jpg
-zh:
-  title: 關於我們
-  subtitle: >-
-    這是一個可選的副標題。它可以用來描述這個頁面是什麼
-  img_path: images/about.jpg
-cn:
-  title: 关於我们
-  subtitle: >-
-    这是一个可选的副标题。它可以用来描述这个页面是什麽
-  img_path: images/about.jpg
-template: page
+pages
+	cn
+		about.md
+		index.md
+	zh
+		about.md
+		index.md
+	en
+		about.md
+		index.md
 ```
+
 **[3] Navbar and Footer locales**
 Go to **site-metadata.json** again, config the header.menus and footer.menus to support muti-language.  Please be careful that the key of each title items should be existed in locale.list
 
