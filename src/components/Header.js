@@ -5,6 +5,7 @@ import { Link, safePrefix } from '../utils';
 
 export default class Header extends React.Component {
   render() {
+    console.log(this.props);
     return (
       <header id="masthead" className="site-header outer">
         <div className="inner">

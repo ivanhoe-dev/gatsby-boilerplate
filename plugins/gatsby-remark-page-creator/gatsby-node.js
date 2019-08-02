@@ -118,43 +118,41 @@ exports.createPages = ({ graphql, getNode, actions, getNodesByType }) => {
                 deletePage(existingPageNode);
             }
 
-            siteNode.siteMetadata.locale.list.forEach(locale => {
-                const page = {
-                    path: `/${locale.value}${url}`,
-                    component: component,
-                    context: {
-                        url: `/${locale.value}${url}`,
-                        rawUrl: url,
-                        relativePath: node.fields.relativePath,
-                        relativeDir: node.fields.relativeDir,
-                        base: node.fields.base,
-                        name: node.fields.name,
-                        locale: locale.value,
-                        frontmatter: node.frontmatter[locale.value],
-                        html: graphQLNode.html,
-                        pages: pages,
-                        site: {
-                            siteMetadata: siteNode.siteMetadata,
-                            pathPrefix: siteNode.pathPrefix,
-                            data: _.get(siteDataNode, 'data', null)
-                        }
+            const page = {
+                path: url,
+                component: component,
+                context: {
+                    url: url,
+                    rawUrl: node.fields.name === 'index' ? '/' : node.fields.name,
+                    relativePath: node.fields.relativePath,
+                    relativeDir: node.fields.relativeDir,
+                    base: node.fields.base,
+                    name: node.fields.name,
+                    locale: node.fields.relativeDir,
+                    frontmatter: node.frontmatter,
+                    html: graphQLNode.html,
+                    pages: pages,
+                    site: {
+                        siteMetadata: siteNode.siteMetadata,
+                        pathPrefix: siteNode.pathPrefix,
+                        data: _.get(siteDataNode, 'data', null)
                     }
-                };
-
-                if (existingPageNode && !_.get(page, 'context.menus')) {
-                    page.context.menus = _.get(existingPageNode, 'context.menus');
                 }
+            };
 
-                createPage(page);
+            if (existingPageNode && !_.get(page, 'context.menus')) {
+                page.context.menus = _.get(existingPageNode, 'context.menus');
+            }
 
-                // Create index page with default locale
-                if (locale.value === siteNode.siteMetadata.locale.default && node.fields.name === 'index') {
-                    const indexPage = Object.assign({}, page);
-                    indexPage.context.url = url;
-                    indexPage.path = url;
-                    createPage(indexPage);
-                }
-            });
+            createPage(page);
+
+            // Create index page with default locale
+            if (node.fields.relativeDir === siteNode.siteMetadata.locale.default && node.fields.name === 'index') {
+                const indexPage = Object.assign({}, page);
+                indexPage.context.url = url;
+                indexPage.path = url;
+                createPage(indexPage);
+            }
         });
     });
 };

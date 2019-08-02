@@ -3,19 +3,13 @@ module.exports = {
     siteMetadata: require('./site-metadata.json'),
     plugins: [
         `gatsby-plugin-react-helmet`,
+        `gatsby-plugin-sass`,
         `gatsby-source-data`,
         {
             resolve: `gatsby-source-filesystem`,
             options: {
                 name: `pages`,
                 path: `${__dirname}/src/pages`,
-            },
-        },
-        {
-            resolve: `gatsby-plugin-stackbit-static-sass`,
-            options: {
-                inputFile: `${__dirname}/src/sass/main.scss`,
-                outputFile: `${__dirname}/public/assets/css/main.css`
             },
         },
         {

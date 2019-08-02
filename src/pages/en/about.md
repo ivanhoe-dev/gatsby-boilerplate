@@ -1,20 +1,9 @@
 ---
-en:
-  title: About Us
-  subtitle: >-
-    This is an optional subtitle. It can be used to describe what this page is
-    about.
-  img_path: images/about.jpg
-zh:
-  title: 關於我們
-  subtitle: >-
-    這是一個可選的副標題。它可以用來描述這個頁面是什麼
-  img_path: images/about.jpg
-cn:
-  title: 关於我们
-  subtitle: >-
-    这是一个可选的副标题。它可以用来描述这个页面是什麽
-  img_path: images/about.jpg
+title: About Us
+subtitle: >-
+  This is an optional subtitle. It can be used to describe what this page is
+  about.
+img_path: images/about.jpg
 template: page
 ---
 
